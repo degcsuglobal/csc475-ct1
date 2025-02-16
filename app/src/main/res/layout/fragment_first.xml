@@ -6,30 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".FirstFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp">
-
-        <Button
-            android:id="@+id/button_first"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/next"
-            app:layout_constraintBottom_toTopOf="@id/textview_first"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content"
+        android:layout_margin="20px"
+        android:orientation="vertical"
+        android:padding="20px">
 
         <TextView
-            android:id="@+id/textview_first"
-            android:layout_width="wrap_content"
+            android:id="@+id/textviewMainContent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/lorem_ipsum"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_first" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_margin="30px"
+            android:padding="20px"
+            android:text="TextView" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="100px" />
+
+        <Button
+            android:id="@+id/refresh"
+            android:layout_width="134dp"
+            android:layout_height="wrap_content"
+            android:text="Refresh"
+            app:icon="@android:drawable/stat_notify_sync_noanim" />
+
+    </LinearLayout>
 </androidx.core.widget.NestedScrollView>

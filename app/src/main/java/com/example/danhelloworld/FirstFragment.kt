@@ -7,6 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.danhelloworld.databinding.FragmentFirstBinding
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import android.os.Build
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -32,9 +35,22 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonFirst.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+        refreshText()
+
+        binding.refresh.setOnClickListener {
+            refreshText()
         }
+    }
+
+    fun refreshText(){
+        // Show the date, the current android version, and amount of free memory
+        val currentDate = LocalDateTime.now()
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+
+        val runtime = Runtime.getRuntime() // used for getting memory stats
+
+        val displayedText = "Hello world!\nThe date and time is ${currentDate.format(formatter)}.\nAndroid version: ${Build.VERSION.RELEASE}\nTotal memory: ${runtime.totalMemory()}\nFree memory:${runtime.freeMemory()}"
+        binding.textviewMainContent.text = displayedText
     }
 
     override fun onDestroyView() {
